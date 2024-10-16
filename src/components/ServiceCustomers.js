@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 //LO PRIMERO ES UTILIZAR LA LIBRERIA DE axios
 import axios from "axios";
+import Global from "../Global";
 
 export default class ServicioCustomers extends Component {
   //NECESITAMOS LA URL Y EL REQUEST DE ACCESO AL SERVICIO
-  urlCustomers = "https://northwind.netcore.io/customers.json";
+  urlCustomers = Global.urlApiCustomers;
 
   //NECESITAMOS UNA VARIABLE EN state PARA ALMACENAR LOS CLIENTES
   state = {
@@ -15,7 +16,8 @@ export default class ServicioCustomers extends Component {
   //LA PREGUNTA ES CUANDO QUEREMOS HACERLO???
   loadCustomers = () => {
     console.log("Antes del servicio");
-    axios.get(this.urlCustomers).then(response => {
+    let request = "customers.json"
+    axios.get(this.urlCustomers + request).then(response => {
         console.log("Leyendo servicio");
         this.setState({
             customers: response.data.results
