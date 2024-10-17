@@ -2,11 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import BuscadorCustomer from './components/BuscadorCustomer';
+import BuscadorCoches from './components/BuscadorCoches';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(  
-    <BuscadorCustomer />  
+    <BuscadorCoches />  
 );
 
 // If you want to start measuring performance in your app, pass a function
