@@ -12,6 +12,7 @@ export default class Empleado extends Component {
     let idDepartamento = this.props.iddepartamento;
     var request = "api/Empleados/EmpleadosDepartamento/" + idDepartamento;
     var url = Global.urlEmpleados + request;
+    console.log("Id: " + this.props.iddepartamento)
     axios.get(url).then(response => {
       console.log(response.data);
       this.setState({
@@ -22,6 +23,18 @@ export default class Empleado extends Component {
 
   componentDidMount = () => {
     this.loadEmpleados();
+  }
+
+  //RECIBIMOS LAS ANTIGUAS PROPS
+  componentDidUpdate(oldProps){
+    //SI COMPARAMOS, PODEMOS ACTUALIZAR EL DIBUJO SOLAMENTE CUANDO 
+    //HA CAMBIADO A props (20)
+    console.log("Old props " + oldProps.iddepartamento);
+    console.log("Current props " + this.props.iddepartamento);
+    if(oldProps.iddepartamento != this.props.iddepartamento) {
+      //SOLAMENTE ACTUALIZAREMOS CUANDO PROPS HA CAMBIADO DE VALOR
+      this.loadEmpleados();
+    }    
   }
 
   render() {
