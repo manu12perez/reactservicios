@@ -30,10 +30,10 @@ export default class BuscadorCoches extends Component {
     let nombreMarca = this.cajaMarca.current.value;
     // UNA FORMA
     let cochesFiltrados = [];
-    for (var coche of this.state.coches){
-        if (nombreMarca == coche.marca) {
-            cochesFiltrados.push(coche);
-          }
+    for (var coche of this.state.coches) {
+      if (nombreMarca == coche.marca) {
+        cochesFiltrados.push(coche);
+      }
     }
     // OTRA FORMA
     // this.state.coches.map((coche, index) => {
@@ -47,11 +47,11 @@ export default class BuscadorCoches extends Component {
     });
   };
 
-//   Cargar los coches al inicializar la página
-    componentDidMount = () => {
-      console.log("Creando component");
-      this.cargarCoches();
-    };
+  //   Cargar los coches al inicializar la página
+  componentDidMount = () => {
+    console.log("Creando component");
+    this.cargarCoches();
+  };
 
   render() {
     return (
@@ -63,7 +63,7 @@ export default class BuscadorCoches extends Component {
           {/* <button onClick={this.cargarCoches}>Cargar coches</button> */}
           <button onClick={this.filtro}>Buscar coches</button>
         </form>
-        <table border="1">
+        <table border="1" class="table table-dark">
           <thead>
             <tr>
               <th>Coche</th>
@@ -76,7 +76,9 @@ export default class BuscadorCoches extends Component {
               this.state.coches.map((coche, index) => {
                 return (
                   <tr key={index}>
-                    <td>{coche.marca} {coche.modelo}</td>
+                    <td>
+                      {coche.marca} {coche.modelo}
+                    </td>
                     <td>{coche.conductor}</td>
                     <td>
                       <img
