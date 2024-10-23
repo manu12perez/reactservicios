@@ -11,14 +11,12 @@ import $ from "jquery";
 import Popper from "popper.js";
 import "bootstrap/dist/js/bootstrap.bundle";
 import BuscadorCoches from "./components/BuscadorCoches";
+import HospitalesMultiple from "./components/HospitalesMultiples";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <div>
-    {/* <TablaMultiplicar numero ="7"/>
-        <TablaMultiplicar numero ="9"/> */}
-    <Router />
-    {/* <BuscadorCoches /> */}
+    <HospitalesMultiple />
   </div>
 );
 
